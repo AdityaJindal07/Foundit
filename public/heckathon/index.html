@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lost & Found Sign Up</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; color: #ccc; }
+  body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    position: relative;
+  }
+
+  /* Fullscreen background image */
+  #bg-img {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+
+  /* Container with blur inside only */
+  .container {
+    display: flex;
+    width: 900px;
+    max-width: 100%;
+    border-radius: 15px;
+    background: rgba(0,0,0,0.4);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    margin: auto;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .left-panel {
+    flex: 1;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+  }
+
+  /* Logo styling */
+  #logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    object-fit: contain;
+  }
+
+  .left-panel h1 { font-size: 3rem; margin-bottom: 10px; text-align: center; }
+  .left-subtext { font-size: 1.2rem; max-width: 250px; text-align: center; }
+
+  .right-panel {
+    flex: 1.2;
+    background: rgba(0,0,0,0.3);
+    padding: 40px 40px 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.1);
+  }
+
+  .right-panel h2 { font-size: 1.8rem; font-weight: 900; margin-bottom: 5px; }
+  .subtitle { font-size: 0.85rem; margin-bottom: 20px; }
+
+  form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  input {
+    grid-column: span 2;
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    outline: none;
+    font-size: 0.95rem;
+    color: #ccc;
+    backdrop-filter: blur(6px);
+  }
+  input:focus { background: rgba(255,255,255,0.1); border-color: #668cd9; }
+
+  input#firstName { grid-column: 1 / 2; }
+  input#lastName { grid-column: 2 / 3; }
+  input#email, input#password { grid-column: 1 / 3; }
+
+  .checkbox-group { grid-column: 1 / 3; display: flex; align-items: center; gap: 8px; font-size: 0.85rem; }
+  .checkbox-group input { width: 16px; height: 16px; accent-color: #668cd9; }
+
+  button.signup-btn {
+    grid-column: 1 / 3;
+    padding: 12px 0;
+    border: none;
+    border-radius: 7px;
+    font-weight: 700;
+    background: #668cd9;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(102,140,217,0.5);
+    transition: background 0.3s ease;
+  }
+  button.signup-btn:hover { background: #556db3; }
+
+  .login-link { margin-top: 18px; font-size: 0.75rem; color: #ccc; }
+  .login-link a { color: #668cd9; text-decoration: none; }
+  .login-link a:hover { text-decoration: underline; }
+
+  /* Responsive adjustments */
+  @media(max-width:780px){
+    .container { flex-direction: column; width: 90%; }
+    form { grid-template-columns: 1fr !important; }
+    input { grid-column: span 1 !important; }
+    #logo { width: 60px; margin-bottom: 15px; }
+  }
+</style>
+</head>
+<body>
+  <!-- Full sharp background image -->
+  <img id="bg-img" src="lost-found-day.jpg" alt="Lost and Found Background" />
+
+  <div class="container">
+    <aside class="left-panel" aria-hidden="true">
+      <img id="logo" src="logo.png" alt="Lost & Found Logo" />
+      <h1>LOST & FOUND</h1>
+      <p class="left-subtext">Helping You Find What You’ve Lost</p>
+    </aside>
+
+    <section class="right-panel" aria-labelledby="formTitle">
+      <h2 id="formTitle">Get Started</h2>
+      <p class="subtitle">Register to Report or Claim Lost Items</p>
+      <form action="#" method="post" novalidate>
+        <input id="firstName" name="firstName" type="text" placeholder="First Name" required />
+        <input id="lastName" name="lastName" type="text" placeholder="Last Name" required />
+        <input id="email" name="email" type="email" placeholder="Email" required />
+        <input id="password" name="password" type="password" placeholder="Password" required />
+        <label class="checkbox-group" for="rememberMe">
+          <input type="checkbox" id="rememberMe" name="rememberMe" checked /> Remember Me
+        </label>
+        <button type="submit" class="signup-btn">Sign Up</button>
+      </form>
+      <p class="login-link">Already have an account? <a href="#">Sign In</a></p>
+    </section>
+  </div>
+</body>
+</html>

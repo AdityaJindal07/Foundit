@@ -1,0 +1,22 @@
+{
+  "dependencies": {
+    "cloudinary": "^2.7.0",
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0",
+    "express-fileupload": "^1.5.2",
+    "mysql2": "^3.14.4",
+    "nodemon": "^3.1.10"
+  },
+  "name": "hackathon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}
